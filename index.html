@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIISAMARTH</title>
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body{
+    margin: 0;
+    background-color: #000;
+    color: #eee;
+    font-family: Poppins;
+    font-size: 12px;
+}
+a{
+    text-decoration: none;
+}
+header{
+    width: 1140px;
+    max-width: 80%;
+    margin: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+}
+header a{
+    color: #eee;
+    margin-right: 40px;
+}
+/* carousel */
+.carousel{
+    height: 100vh;
+    margin-top: -50px;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+.carousel .list .item{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0 0 0 0;
+}
+.carousel .list .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.carousel .list .item .content{
+    position: absolute;
+    top: 20%;
+    width: 1140px;
+    max-width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-right: 30%;
+    box-sizing: border-box;
+    color: #fff;
+    text-shadow: 0 5px 10px #0004;
+}
+.carousel .list .item .author{
+    font-weight: bold;
+    letter-spacing: 10px;
+}
+.carousel .list .item .title,
+.carousel .list .item .topic{
+    font-size: 5em;
+    font-weight: bold;
+    line-height: 1.3em;
+}
+.carousel .list .item .topic{
+    color: #f1683a;
+}
+.carousel .list .item .buttons{
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+}
+.carousel .list .item .buttons button{
+    border: none;
+    background-color: #eee;
+    letter-spacing: 3px;
+    font-family: Poppins;
+    font-weight: 500;
+}
+.carousel .list .item .buttons button:nth-child(2){
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #eee;
+}
+/* thumbail */
+.thumbnail{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: max-content;
+    z-index: 100;
+    display: flex;
+    gap: 20px;
+}
+.thumbnail .item{
+    width: 150px;
+    height: 220px;
+    flex-shrink: 0;
+    position: relative;
+}
+.thumbnail .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.thumbnail .item .content{
+    color: #fff;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
+.thumbnail .item .content .title{
+    font-weight: 500;
+}
+.thumbnail .item .content .description{
+    font-weight: 300;
+}
+/* arrows */
+.arrows{
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.arrows button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #eee4;
+    border: none;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+    transition: .5s;
+}
+.arrows button:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+/* animation */
+.carousel .list .item:nth-child(1){
+    z-index: 1;
+}
+
+/* animation text in first item */
+
+.carousel .list .item:nth-child(1) .content .author,
+.carousel .list .item:nth-child(1) .content .title,
+.carousel .list .item:nth-child(1) .content .topic,
+.carousel .list .item:nth-child(1) .content .des,
+.carousel .list .item:nth-child(1) .content .buttons
+{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s 1s linear 1 forwards;
+}
+@keyframes showContent{
+    to{
+        transform: translateY(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+.carousel .list .item:nth-child(1) .content .title{
+    animation-delay: 1.2s!important;
+}
+.carousel .list .item:nth-child(1) .content .topic{
+    animation-delay: 1.4s!important;
+}
+.carousel .list .item:nth-child(1) .content .des{
+    animation-delay: 1.6s!important;
+}
+.carousel .list .item:nth-child(1) .content .buttons{
+    animation-delay: 1.8s!important;
+}
+/* create animation when next click */
+.carousel.next .list .item:nth-child(1) img{
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    border-radius: 30px;
+    animation: showImage .5s linear 1 forwards;
+}
+@keyframes showImage{
+    to{
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+.carousel.next .thumbnail .item:nth-last-child(1){
+    overflow: hidden;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+.carousel.prev .list .item img{
+    z-index: 100;
+}
+@keyframes showThumbnail{
+    from{
+        width: 0;
+        opacity: 0;
+    }
+}
+.carousel.next .thumbnail{
+    animation: effectNext .5s linear 1 forwards;
+}
+
+@keyframes effectNext{
+    from{
+        transform: translateX(150px);
+    }
+}
+
+/* running time */
+
+.carousel .time{
+    position: absolute;
+    z-index: 1000;
+    width: 0%;
+    height: 3px;
+    background-color: #f1683a;
+    left: 0;
+    top: 0;
+}
+
+.carousel.next .time,
+.carousel.prev .time{
+    animation: runningTime 3s linear 1 forwards;
+}
+@keyframes runningTime{
+    from{ width: 100%}
+    to{width: 0}
+}
+
+
+/* prev click */
+
+.carousel.prev .list .item:nth-child(2){
+    z-index: 2;
+}
+
+.carousel.prev .list .item:nth-child(2) img{
+    animation: outFrame 0.5s linear 1 forwards;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+@keyframes outFrame{
+    to{
+        width: 150px;
+        height: 220px;
+        bottom: 50px;
+        left: 50%;
+        border-radius: 20px;
+    }
+}
+
+.carousel.prev .thumbnail .item:nth-child(1){
+    overflow: hidden;
+    opacity: 0;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+.carousel.next .arrows button,
+.carousel.prev .arrows button{
+    pointer-events: none;
+}
+.carousel.prev .list .item:nth-child(2) .content .author,
+.carousel.prev .list .item:nth-child(2) .content .title,
+.carousel.prev .list .item:nth-child(2) .content .topic,
+.carousel.prev .list .item:nth-child(2) .content .des,
+.carousel.prev .list .item:nth-child(2) .content .buttons
+{
+    animation: contentOut 1.5s linear 1 forwards!important;
+}
+
+@keyframes contentOut{
+    to{
+        transform: translateY(-150px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+@media screen and (max-width: 678px) {
+    .carousel .list .item .content{
+        padding-right: 0;
+    }
+    .carousel .list .item .content .title{
+        font-size: 30px;
+    }
+}
+    </style>
+</head>
+<body>
+<div id="grad">
+    <img id="MIISAMARTHMAINIMAGE" src="./MII.png" alt="">
+    <br>
+    <br>
+    <nav id="navbar">
+        <ul>
+            <li><a href="index.html"><i style="margin-right: 10px;" class="fa-solid fa-house-chimney" style="color: #F87412;"></i>Home</a></li>
+            <li><a href="Shop.html"><i style="margin-right: 10px;" class="fa-solid fa-shop" style="color: #F87412;"></i>Shop</a></li>
+            <li><a href="cart.html"><i style="margin-right: 10px;" class="fa-solid fa-cart-shopping" style="color: #F87412;"></i>Cart</a></li>
+            <li><a href="AboutUs.html"><i style="margin-right: 10px;" class="fa-solid fa-address-card" style="color: #F87412;"></i>About Us</a></li>
+            <li><a href="ContactUs.html"><i style="margin-right: 10px;" class="fa-solid fa-address-book" style="color: #F87412;"></i>Contact us</a></li>
+            <li><i class="fa-solid fa-magnifying-glass" style="color: #F87412; margin-right: 10px;"></i><input type="text" placeholder="Search" id="fname" name="fname" size="40" style="height: 60px; width:250px; margin-left:10px; border-radius:20px; margin-top:20px;" ></li>
+            <li><a href="#"><i style="margin-right: 10px;" class="fa-solid fa-language" style="color: #F87412;"></i><button style="border: none; background:none; color:#F87412;" onclick="promptme()"><b>Translate</b></button></a></li>
+            <!-- <li><a href="profile.html"><i class="fa-solid fa-user" style="color: #F87412; margin-right: 10px;"></i>Profile</a></li> -->
+            <li><a href="signin.html"><i style="margin-right: 10px;" class="fa fa-sign-in" aria-hidden="true" ></i>
+              Sign In</a></li>
+        </ul>
+    </nav>
+    <br>
+    <br>
+    <!-- <div id="products">
+      <div class="card">
+        <img src="./P-1.jpeg" alt="" class="productimgs">
+      </div>
+      <div class="card">
+        <img src="./P-2.jpeg" alt="" class="productimgs">
+      </div>
+      <div class="card">
+        <img src="./P-3.jpeg" alt="" class="productimgs">
+      </div>
+      <div class="card">
+        <img src="./P-4.jpeg" alt="" class="productimgs">
+      </div>
+    </div>
+    <br>
+    <div id="productdescription">
+        <div class="summary">
+            <center><b><p style="font-size: 25px;">Teracotta Ganesh Ji's statue</p></b></center>
+            <hr>
+            <p  style="font-size: 25px;"><a href="#"><i style="margin-right: 10px;"  class="fa-solid fa-box"></i>Check description</a></p>
+            <p  style="font-size: 25px;"><a href="verify(p-1).html"><i style="margin-right: 10px;"  class="fa-solid fa-square-check"></i>Verify this item</a></p>
+            <p  style="font-size: 25px;"><a href="#"><i style="margin-right: 10px;"  class="fa-solid fa-cart-shopping"></i>Add to cart</a></p>
+        </div>
+        <div class="summary">
+            <center><b><p style="font-size: 25px;">Handmade Tufted Thick Woolen Plain Carpets</p></b></center>
+            <hr>
+            <p  style="font-size: 25px;"><a href="#"><i style="margin-right: 10px;"  class="fa-solid fa-box"></i>Check description</a></p>
+            <p  style="font-size: 25px;"><a href="verify(p-2).html"><i style="margin-right: 10px;"  class="fa-solid fa-square-check"></i>Verify this item</a></p>
+            <p  style="font-size: 25px;"><a href="#"><i style="margin-right: 10px;"  class="fa-solid fa-cart-shopping"></i>Add to cart</a></p>
+        </div>
+        <div class="summary">
+            <center><b><p style="font-size: 25px;">Handloom Pure Georgette Silk Saree Black</p></b></center>
+            <hr>
+            <p  style="font-size: 25px;"><a href="#"><i style="margin-right: 10px;"  class="fa-solid fa-box"></i>Check description</a></p>
+            <p  style="font-size: 25px;"><a href="verify(p-3).html"><i style="margin-right: 10px;"  class="fa-solid fa-square-check"></i>Verify this item</a></p>
+            <p  style="font-size: 25px;"><a href="#"><i style="margin-right: 10px;"  class="fa-solid fa-cart-shopping"></i>Add to cart</a></p>
+        </div>
+        <div class="summary">
+            <center><b><p style="font-size: 25px;">Banarasi Pure Silk White And Blue</p></b></center>
+            <hr>
+            <p  style="font-size: 25px;"><a href="#"><i style="margin-right: 10px;"  class="fa-solid fa-box"></i>Check description</a></p>
+            <p  style="font-size: 25px;"><a href="verify(p-4).html"><i style="margin-right: 10px;"  class="fa-solid fa-square-check"></i>Verify this item</a></p>
+            <p  style="font-size: 25px;"><a href="#"><i style="margin-right: 10px;" class="fa-solid fa-cart-shopping"></i>Add to cart</a></p>
+        </div>
+    </div>
+    <br>
+    <div id="buynow">
+        <div class="buy">
+          <p><a href="#" class="by">Buy Now</a></p>
+        </div>
+        <div class="buy">
+            <p><a href="#" class="by">Buy Now</a></p>
+        </div>
+        <div class="buy">
+            <p><a href="#"class="by">Buy Now</a></p>
+        </div>
+        <div class="buy">
+            <p><a href="#" class="by">Buy Now</a></p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="products">
+        <div class="card">
+          <img src="./P-5.jpeg" alt="" class="productimgs">
+        </div>
+        <div class="card">
+          <img src="./P-6.jpeg" alt="" class="productimgs">
+        </div>
+        <div class="card">
+          <img src="./P-7.jpeg" alt="" class="productimgs">
+        </div>
+        <div class="card">
+          <img src="./P-8.jpeg" alt="" class="productimgs">
+        </div>
+      </div>
+      <br>
+      <div id="productdescription">
+          <div class="summary">
+            <center><b><p style="font-size: 25px;">Firozabadi bangles </p></b></center>
+            <hr>
+            <p  style="font-size: 25px;"><a href="#"><i style="margin-right: 10px;"  class="fa-solid fa-box"></i>Check description</a></p>
+            <p  style="font-size: 25px;"><a href="verify(p-5).html"><i style="margin-right: 10px;"  class="fa-solid fa-square-check"></i>Verify this item</a></p>
+            <p  style="font-size: 25px;"><a href="#"><i style="margin-right: 10px;"  class="fa-solid fa-cart-shopping"></i>Add to cart</a></p>
+          </div>
+          <div class="summary">
+            <center><b><p style="font-size: 25px;">Nagra juti</p></b></center>
+            <hr>
+            <p  style="font-size: 25px;"><a href="#"><i style="margin-right: 10px;"  class="fa-solid fa-box"></i>Check description</a></p>
+            <p  style="font-size: 25px;"><a href="verify(p-6).html"><i style="margin-right: 10px;"  class="fa-solid fa-square-check"></i>Verify this item</a></p>
+            <p  style="font-size: 25px;"><a href="#"><i style="margin-right: 10px;"  class="fa-solid fa-cart-shopping"></i>Add to cart</a></p>
+          </div>
+          <div class="summary">
+            <center><b><p style="font-size: 25px;">Raysfield Men's Formal Shoes</p></b></center>
+            <hr>
+            <p  style="font-size: 25px;"><a href="#"><i style="margin-right: 10px;"  class="fa-solid fa-box"></i>Check description</a></p>
+            <p  style="font-size: 25px;"><a href="verify(p-7).html"><i style="margin-right: 10px;"  class="fa-solid fa-square-check"></i>Verify this item</a></p>
+            <p  style="font-size: 25px;"><a href="#"><i style="margin-right: 10px;"  class="fa-solid fa-cart-shopping"></i>Add to cart</a></p>
+          </div>
+          <div class="summary">
+            <center><b><p style="font-size: 25px;">Papier Mache, original gold plated items, decorations</p></b></center>
+            <hr>
+            <p  style="font-size: 25px;"><a href="#"><i style="margin-right: 10px;"  class="fa-solid fa-box"></i>Check description</a></p>
+            <p  style="font-size: 25px;"><a href="verify(p-8).html"><i style="margin-right: 10px;"  class="fa-solid fa-square-check"></i>Verify this item</a></p>
+            <p  style="font-size: 25px;"><a href="#"><i style="margin-right: 10px;"  class="fa-solid fa-cart-shopping"></i>Add to cart</a></p>
+          </div>
+      </div>
+      <br>
+      <div id="buynow">
+          <div class="buy">
+            <p><a href="#" class="by">Buy Now</a></p>
+          </div>
+          <div class="buy">
+              <p><a href="#" class="by">Buy Now</a></p>
+          </div>
+          <div class="buy">
+              <p><a href="#" class="by">Buy Now</a></p>
+          </div>
+          <div class="buy">
+              <p><a href="#" class="by">Buy Now</a></p>
+          </div>
+      </div>
+      <br><br><br>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <hr><br>
+  <div id="shambhu">
+    <div id="shambhu-image">
+      <img id="simage" src="./Shambhu.jpg" alt="">
+    </div>
+    <div id="shambhu-description">
+      <h2 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><b>DID YOU CHECK SHAMBHU JI’S CARPETS ?</b></h2>
+      <p style="font-size:28px;">Shambhuji is a Kashmiri artisan who is known for his hard work and dedication to quality control. He takes great pride in his craft and ensures that each of his handmade products is of the highest quality. Shambhuji sells his products on MIIsamarth, an online marketplace that connects artisans and buyers in India. MIIsamarth is a useful site for artisans like Shambhuji because it provides a platform to showcase their products and reach a wider audience. By selling his products on MIIsamarth, Shambhuji is able to connect with customers from all over India and beyond, and share his unique Kashmiri handicrafts with the world.</p>
+    </div>
+  </div>
+  <br><br>-->
+
+  
+    <!-- carousel -->
+    <div class="carousel">
+      <!-- list item -->
+      <div class="list">
+          <div class="item">
+              <img src="./A-1.jpeg">
+              <div class="content">
+                  <!-- <div class="author">LUNDEV</div> -->
+                  <div class="title">GHANSHYAM RAI</div>
+                  <div class="topic">WEAVER</div>
+                  <div class="des" style="font-size: 30px;">
+                      <!-- lorem 50 -->
+                     <b>Unveil the magic of artisanal craftsmanship with our exclusive collection of handmade statues, meticulously crafted by local artisans! Transform your surroundings into a haven of elegance and charm with these one-of-a-kind masterpieces that breathe life into your living space.</b>
+                  </div>
+                  <!-- <div class="buttons">
+                      <button>SEE MORE</button>
+                      <button>SUBSCRIBE</button>
+                  </div> -->
+              </div>
+          </div>
+          <div class="item">
+              <img src="./A-2.jpeg">
+              <div class="content">
+                  <!-- <div class="author">LUNDEV</div> -->
+                  <div class="title">KAMLESH JHA</div>
+                  <div class="topic">DRESSER</div>
+                  <div class="des" style="font-size: 30px;">
+                    <b>Are you ready to adorn your wrists with a touch of elegance and tradition? Look no further! [Artisan's Name], a local master craftsman, brings you an exquisite collection of handcrafted bangles that blend timeless beauty with modern charm.</b>
+                  </div>
+                  <!-- <div class="buttons">
+                      <button>SEE MORE</button>
+                      <button>SUBSCRIBE</button>
+                  </div> -->
+              </div>
+          </div>
+          <div class="item">
+              <img src="./A-3.jpeg">
+              <div class="content">
+                  <!-- <div class="author">LUNDEV</div> -->
+                  <div class="title">ANUBHAV</div>
+                  <div class="topic">POTTER</div>
+                  <div class="des" style="font-size: 30px;">
+                      <b>Witness the meticulous craftsmanship that goes into each handmade pot. Infuses passion into every creation, skillfully molding clay into unique forms that bring warmth and authenticity to your surroundings.</b>
+                  </div>
+                  <!-- <div class="buttons">
+                      <button>SEE MORE</button>
+                      <button>SUBSCRIBE</button>
+                  </div> -->
+              </div>
+          </div>
+          <div class="item">
+              <img src="./A-4.jpeg">
+              <div class="content">
+                  <!-- <div class="author">LUNDEV</div> -->
+                  <div class="title">VIBHUTI</div>
+                  <div class="topic">WEAVER</div>
+                  <div class="des" style="font-size: 30px;">
+                      <b>Transform your home into a haven of warmth and style with our hand-painted blankets. Crafted with love and attention to detail, each blanket is a testament to the skill and creativity of our local artist. Whether you're snuggling up on a chilly evening or adding a pop of color to your living room.</b>
+                  </div>
+                  <!-- <div class="buttons">
+                      <button>SEE MORE</button>
+                      <button>SUBSCRIBE</button>
+                  </div> -->
+              </div>
+          </div>
+      </div>
+      <!-- list thumnail -->
+      <div class="thumbnail">
+          <div class="item">
+              <img src="./A-1.jpeg">
+              <div class="content">
+                  <div class="title">
+                      GHANSHYAM RAI
+                  </div>
+                  <div class="description">
+                      weaver
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="./A-2.jpeg">
+              <div class="content">
+                  <div class="title">
+                      KAMLESH JHA
+                  </div>
+                  <div class="description">
+                      dresser
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="./A-3.jpeg">
+              <div class="content">
+                  <div class="title">
+                      ANUBHAV
+                  </div>
+                  <div class="description">
+                      potter
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="./A-4.jpeg">
+              <div class="content">
+                  <div class="title">
+                      VIBHUTI
+                  </div>
+                  <div class="description">
+                      weaver
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- next prev -->
+
+      <div class="arrows">
+          <button id="prev"><</button>
+          <button id="next">></button>
+      </div>
+      <!-- time running -->
+      <div class="time"></div>
+  </div>
+
+
+ 
+</div>  
+
+<script>
+
+        function promptme(){
+            alert("We are a small team working hard to bring you website translation. Stay tuned!");
+      }
+
+
+
+ //step 1: get DOM
+let nextDom = document.getElementById('next');
+let prevDom = document.getElementById('prev');
+
+let carouselDom = document.querySelector('.carousel');
+let SliderDom = carouselDom.querySelector('.carousel .list');
+let thumbnailBorderDom = document.querySelector('.carousel .thumbnail');
+let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
+let timeDom = document.querySelector('.carousel .time');
+
+thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+let timeRunning = 3000;
+let timeAutoNext = 7000;
+
+nextDom.onclick = function(){
+    showSlider('next');    
+}
+
+prevDom.onclick = function(){
+    showSlider('prev');    
+}
+let runTimeOut;
+let runNextAuto = setTimeout(() => {
+    next.click();
+}, timeAutoNext)
+function showSlider(type){
+    let  SliderItemsDom = SliderDom.querySelectorAll('.carousel .list .item');
+    let thumbnailItemsDom = document.querySelectorAll('.carousel .thumbnail .item');
+    
+    if(type === 'next'){
+        SliderDom.appendChild(SliderItemsDom[0]);
+        thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+        carouselDom.classList.add('next');
+    }else{
+        SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
+        thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
+        carouselDom.classList.add('prev');
+    }
+    clearTimeout(runTimeOut);
+    runTimeOut = setTimeout(() => {
+        carouselDom.classList.remove('next');
+        carouselDom.classList.remove('prev');
+    }, timeRunning);
+
+    clearTimeout(runNextAuto);
+    runNextAuto = setTimeout(() => {
+        next.click();
+    }, timeAutoNext)
+}
+</script>
+
+
+
+
+
+
+
+
+  <img id="Bottom" src="./footer.png" alt=""> 
+</div>
+</body>
+</html>

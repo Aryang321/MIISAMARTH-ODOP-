@@ -1,0 +1,290 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#MIISAMARTHMAINIMAGE{
+    width: 100%;
+    height: 450px;
+}
+
+#Bottom{
+    width: 100%;
+    height: 300px;
+}
+
+
+/*Navigation bar = list stylying*/
+#navbar{
+    background-color: white;
+    position:relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#navbar ul{
+    display: flex;
+    justify-content:space-around;
+    font-size: 1.3rem;
+    font-family:sans-serif;
+}
+
+#navbar::before{
+    content:"";
+    position: absolute;
+    height:100%;
+    width:100%;
+    z-index:-1;
+    opacity:0.5 ;
+}
+#navbar ul li{
+    list-style:none;
+    font-size:40px;
+    font-weight:bold;
+}
+
+#navbar ul li a{
+    color:rgb(222, 75, 21);
+    display:block;
+    padding:20px 22px;
+    border-radius:30px ;
+    /* text-decoration: none; */
+}
+
+a {
+    text-decoration: none;
+}
+
+#navbar ul li a:hover{
+    color: rgb(222, 75, 21);
+    background-color:#ff944c87;
+}
+
+
+#bestseller{
+    color: #F87412;
+    font-weight:bold;
+    font-size: 35px;
+}
+
+#products{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.card{
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+    width: 400px;
+    height: 500px;
+    background-color:white;
+    border:5px solid #F87412;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;      
+    padding:0px;
+    box-shadow: 10px 10px 30px black;
+}
+
+
+.card:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+  
+
+.productimgs{
+    width: 392px;
+    height: 492px;
+    border-radius: 12px;
+}
+
+#productdescription{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.summary{
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+    width:400px;
+    height: 300px;
+    background-color:rgb(165,239,255);
+    border-radius: 15px;
+    gap:20px;      
+    padding:20px;
+    box-shadow: 10px 10px 30px black;
+    float:right;
+}
+
+.summary:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+  
+
+#buynow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.buy{
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+    width:400px;
+    height: 50px;
+    background-color:rgb(59,177,63);
+    border-radius: 30px;
+    gap:20px;      
+    padding:0px;
+    box-shadow: 10px 10px 30px black;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.buy:hover {
+  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+
+
+
+/* VERIFICATION */
+
+#completediv{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 30px;
+    padding: 50px;
+
+}
+
+#productlook{
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+    width:400px;
+    height: 500px;
+    background-color:white;
+    border:5px solid #F87412;
+    border-radius: 15px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;  
+    padding:0px;
+    box-shadow: 10px 10px 30px black;
+}
+
+
+#productlook:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+  
+.p1image{
+    width:390px;
+    height: 400px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}  
+
+.price{
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+    width:390px;
+    height: 50px;
+    background-color:white;
+    border-radius: 0px;
+    padding:0px;
+    color:rgb(59,177,63);
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.buyitem{
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+    width:392px;
+    height: 50px;
+    background-color:rgb(59,177,63);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    gap:20px;      
+    padding:0px;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+
+
+#location{
+    font-size: 30px;
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+    width:400px;
+    height: 400px;
+    background-color:white;
+    border:5px solid #F87412;
+    border-radius: 15px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;  
+    padding:0px;
+    box-shadow: 10px 10px 30px black;
+}
+
+
+#location:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+
+
+
+
+#description{
+    font-size: 30px;
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+    width: 1800px;
+    height: 1200px;
+    background-color:white;
+    border:5px solid #F87412;
+    border-radius: 15px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;  
+    padding:0px;
+    box-shadow: 10px 10px 30px black;
+}
+
+#grad {
+    background-image: linear-gradient(to bottom right, red, yellow);
+  }
+
+.by{
+    text-decoration: none;
+    color: white;
+}
+
+#fname{
+    border-color: #F87412;
+    border-width: 5px;
+}
+
